@@ -93,7 +93,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0; /* Remove internal padding for full-screen feel */
+            padding: 0; 
         }
         
         .page8-content {
@@ -104,11 +104,10 @@
         }
 
         .neon-box {
-            /* Main container style for the terminal, matching the image */
             background: rgba(0, 0, 0, 0.8);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 0 40px rgba(0, 191, 255, 0.5), /* Blue Neon Glow */
+            box-shadow: 0 0 40px rgba(0, 191, 255, 0.5), 
                         0 0 15px rgba(0, 191, 255, 0.8) inset;
             border: 2px solid #00bfff;
             width: 100%;
@@ -124,7 +123,6 @@
         }
 
         .server-status {
-            /* Styles for the "Wingo Server Connected" box */
             background: #0d1b2a;
             border: 1px solid #00bfff;
             padding: 15px;
@@ -139,7 +137,7 @@
         }
         
         .server-status i {
-            color: #55efc4; /* Green Wi-Fi icon */
+            color: #55efc4; 
             font-size: 1.5rem;
             text-shadow: 0 0 8px #55efc4;
             animation: wifi-pulse 1.5s infinite alternate;
@@ -151,7 +149,7 @@
         }
 
         .server-status-text {
-            color: #00bfff; /* Light blue text */
+            color: #00bfff; 
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -163,7 +161,6 @@
         }
 
         .prediction-input input {
-            /* Input field styling */
             width: 100%;
             padding: 15px;
             border-radius: 8px;
@@ -184,13 +181,12 @@
         }
 
         .generate-btn {
-            /* Large, prominent button, matching the image */
             width: 100%;
             padding: 20px 30px;
             font-size: 1.5rem;
             font-weight: 700;
             border-radius: 15px;
-            background: linear-gradient(90deg, #ff6b6b, #ff9f43); /* Orange/Red Gradient */
+            background: linear-gradient(90deg, #ff6b6b, #ff9f43); 
             box-shadow: 0 0 30px rgba(255, 107, 107, 0.9);
             animation: pulse-red 2s infinite;
             border: none;
@@ -219,7 +215,63 @@
             text-shadow: 0 0 5px #ff6b6b;
         }
         
-        /* ... (Keeping other original CSS styles for consistency) ... */
+        /* --- Image Grid (Page 3) Fixes --- */
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        
+        /* UPDATED: Now supports background image from data-url */
+        .image-item { 
+            border-radius: 10px; 
+            overflow: hidden; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 3px solid transparent; 
+            height: 150px; 
+            background: rgba(255, 255, 255, 0.1); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: flex-end; /* Align content to bottom */
+            align-items: center; 
+            font-size: 1rem; 
+            color: #fff; 
+            
+            /* Add background image properties */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        /* Optional: Add a subtle overlay to make text readable */
+        .image-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 1;
+        }
+        
+        .image-item span {
+            z-index: 2; /* Bring text to front */
+            margin-bottom: 10px;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* Hide icon when image is set */
+        .image-item i { 
+            display: none; 
+        }
+
+        .image-item:hover { transform: scale(1.05); }
+        .image-item.selected { border-color: #ff6b6b; box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); }
+        /* --- End Image Grid Fixes --- */
+        
+        /* ... (Remaining styles are unchanged but included for completeness) ... */
         .logo { text-align: center; margin-bottom: 30px; }
         .logo p { font-size: 1.2rem; color: #a5b1c2; margin-top: 10px; }
         .btn-center { display: block; margin: 30px auto; width: 250px; }
@@ -229,11 +281,6 @@
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; margin-bottom: 10px; font-size: 1.2rem; color: #a5b1c2; }
         .form-control { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #4ecdc4; background: rgba(255, 255, 255, 0.1); color: white; font-size: 1.1rem; transition: all 0.3s ease; }
-        .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-        .image-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; border: 3px solid transparent; height: 150px; background: rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1rem; color: #fff; }
-        .image-item i { font-size: 3rem; margin-bottom: 10px; }
-        .image-item:hover { transform: scale(1.05); }
-        .image-item.selected { border-color: #ff6b6b; box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); }
         .option-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; margin-bottom: 20px; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent; }
         .option-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.15); }
         .option-card.selected { border-color: #4ecdc4; background: rgba(78, 205, 196, 0.2); }
@@ -242,7 +289,8 @@
         .option-price { font-size: 1.3rem; color: #ff6b6b; font-weight: 700; }
         .option-description { color: #a5b1c2; font-size: 1rem; }
         .payment-container { text-align: center; padding: 20px; }
-        .qr-code { width: 250px; height: 250px; background: white; border-radius: 10px; margin: 20px auto; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: #333; }
+        /* QR Code Container Styling */
+        .qr-code { width: 250px; height: 250px; background: white; border-radius: 10px; margin: 20px auto; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: #333; overflow: hidden; }
         .payment-amount { font-size: 1.8rem; margin: 20px 0; color: #ff6b6b; font-weight: 700; }
         .utr-input { width: 100%; max-width: 400px; margin: 20px auto; }
         .admin-panel { position: fixed; top: 10px; right: 10px; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 10px; cursor: pointer; z-index: 1000; }
@@ -311,7 +359,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            color: #00ff00; /* Classic Hacker Green */
+            color: #00ff00; 
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 20px;
         }
@@ -599,7 +647,7 @@
             <div class="payment-container">
                 <h3>Scan and Pay</h3>
                 <div class="qr-code">
-                    <img src="qr.png" alt="Payment QR Code" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <img src="qr.png" alt="Payment QR Code" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 
                 <div class="payment-amount" id="totalAmount">Total: ₹0</div>
@@ -1124,8 +1172,12 @@
                 const imageName = `anime${i}.png`;
                 const imageItem = document.createElement('div');
                 imageItem.className = 'image-item';
-                // Using font-awesome icons as placeholders for BG images
-                imageItem.innerHTML = `<i class="fas fa-image"></i><span>BG ${i}</span>`; 
+                
+                // IMPORTANT: Set the actual background image via style/URL
+                imageItem.style.backgroundImage = `url('${imageName}')`;
+
+                // Adding a span for the text (BG 1, BG 2, etc.)
+                imageItem.innerHTML = `<span>BG ${i}</span>`; 
                 imageItem.setAttribute('data-image', imageName);
                 
                 imageItem.addEventListener('click', function() {
@@ -1227,89 +1279,4 @@
             const adminOrders = document.getElementById('adminOrders');
             adminOrders.innerHTML = '<h3>Pending Orders</h3><div id="loadingSpinner" class="spinner"></div>';
             
-            db.collection('hackOrders').where('status', 'in', ['pending', 'approved']).get()
-                .then((querySnapshot) => {
-                    document.getElementById('loadingSpinner')?.remove(); 
-                    
-                    if (querySnapshot.empty) {
-                        adminOrders.innerHTML = '<h3>Pending Orders</h3><p>No pending or recently approved orders</p>';
-                        return;
-                    }
-                    
-                    adminOrders.innerHTML = '<h3>Pending Orders</h3>'; 
-                    
-                    querySnapshot.forEach((doc) => {
-                        const order = doc.data();
-                        const statusClass = order.status === 'approved' ? 'status-approved' : 'status-pending';
-                        const statusText = order.status === 'approved' ? 'APPROVED' : 'PENDING';
-
-                        const orderItem = document.createElement('div');
-                        orderItem.className = 'order-item';
-                        orderItem.innerHTML = `
-                            <div class="order-header">
-                                <h4>${order.hackName} (ID: ${doc.id.substring(0, 6)}...) - <span class="${statusClass}">${statusText}</span></h4>
-                                <div class="order-actions">
-                                    <button class="btn btn-small btn-approve" data-id="${doc.id}">Approve</button>
-                                    <button class="btn btn-small btn-reject" data-id="${doc.id}">Reject</button>
-                                </div>
-                            </div>
-                            <p><strong>Mode:</strong> ${order.mode} | <strong>Under Level:</strong> ${order.underLevel} | <strong>BG:</strong> ${order.backgroundImage}</p>
-                            <p><strong>Amount:</strong> ₹${order.totalAmount} | <strong>UTR:</strong> ${order.utr}</p>
-                            <p><strong>Created:</strong> ${order.createdAt ? order.createdAt.toDate().toLocaleString() : 'N/A'}</p>
-                        `;
-                        adminOrders.appendChild(orderItem);
-                    });
-                    
-                    document.querySelectorAll('.btn-approve').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            updateOrderStatusAdmin(this.getAttribute('data-id'), 'approved');
-                        });
-                    });
-                    
-                    document.querySelectorAll('.btn-reject').forEach(btn => {
-                        btn.addEventListener('click', function() {
-                            updateOrderStatusAdmin(this.getAttribute('data-id'), 'rejected');
-                        });
-                    });
-                })
-                .catch((error) => {
-                    console.error("Error getting documents: ", error);
-                    let errorMessage = error.code === 'permission-denied' ? 'Error: Permission Denied. Check your Firebase Security Rules!' : `Error: ${error.message}`;
-                    document.getElementById('loadingSpinner')?.remove();
-                    adminOrders.innerHTML = `<h3>Pending Orders</h3><p style="color: #ff6b6b; font-weight: bold;">${errorMessage}</p>`;
-                });
-        }
-
-        function updateOrderStatusAdmin(orderId, status) {
-            if (!db) return alert('Database connection is not active.');
-            
-            db.collection('hackOrders').doc(orderId).update({
-                status: status
-            })
-            .then(() => {
-                alert(`Order ${orderId.substring(0, 6)}... ${status} successfully`);
-                loadOrders(); // Reload orders
-            })
-            .catch((error) => {
-                console.error("Error updating document: ", error);
-                alert(`Error updating order: ${error.message}`);
-            });
-        }
-
-        // Admin Panel/Password logic (from original code)
-        adminPanel.addEventListener('click', () => { passwordModal.style.display = 'flex'; });
-        submitPassword.addEventListener('click', () => {
-            if (adminPassword.value === '456') {
-                passwordModal.style.display = 'none';
-                adminModal.style.display = 'flex';
-                loadOrders();
-            } else { alert('Incorrect password'); }
-        });
-        closeAdmin.addEventListener('click', () => { adminModal.style.display = 'none'; });
-        closePrediction.addEventListener('click', () => { predictionResult.style.display = 'none'; });
-        
-        // Initialize the application
-        init();
-    </script>
-</body>
-</html>
+            db.collection('hackOrders').where('status', 'in', ['pending', 'approved
