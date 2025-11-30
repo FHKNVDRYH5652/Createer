@@ -88,26 +88,34 @@
         
         /* --- Prediction Page (Page 8) specific styles --- */
         #page8 {
-            background-image: linear-gradient(135deg, #0d0d1e, #0a1128); 
             min-height: 90vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0; 
+            padding: 0; /* Remove internal padding for full-screen feel */
+            /* Add styles to handle background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out;
         }
-        
+
         .page8-content {
             width: 90%;
             max-width: 450px;
             padding: 40px 20px;
             margin-top: 50px;
+            /* Ensure content is readable over background image */
+            background: rgba(13, 13, 30, 0.8); /* Dark overlay */
+            border-radius: 20px;
         }
 
         .neon-box {
+            /* Main container style for the terminal, matching the image */
             background: rgba(0, 0, 0, 0.8);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 0 40px rgba(0, 191, 255, 0.5), 
+            box-shadow: 0 0 40px rgba(0, 191, 255, 0.5), /* Blue Neon Glow */
                         0 0 15px rgba(0, 191, 255, 0.8) inset;
             border: 2px solid #00bfff;
             width: 100%;
@@ -123,6 +131,7 @@
         }
 
         .server-status {
+            /* Styles for the "Wingo Server Connected" box */
             background: #0d1b2a;
             border: 1px solid #00bfff;
             padding: 15px;
@@ -137,7 +146,7 @@
         }
         
         .server-status i {
-            color: #55efc4; 
+            color: #55efc4; /* Green Wi-Fi icon */
             font-size: 1.5rem;
             text-shadow: 0 0 8px #55efc4;
             animation: wifi-pulse 1.5s infinite alternate;
@@ -149,7 +158,7 @@
         }
 
         .server-status-text {
-            color: #00bfff; 
+            color: #00bfff; /* Light blue text */
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -161,6 +170,7 @@
         }
 
         .prediction-input input {
+            /* Input field styling */
             width: 100%;
             padding: 15px;
             border-radius: 8px;
@@ -181,12 +191,13 @@
         }
 
         .generate-btn {
+            /* Large, prominent button, matching the image */
             width: 100%;
             padding: 20px 30px;
             font-size: 1.5rem;
             font-weight: 700;
             border-radius: 15px;
-            background: linear-gradient(90deg, #ff6b6b, #ff9f43); 
+            background: linear-gradient(90deg, #ff6b6b, #ff9f43); /* Orange/Red Gradient */
             box-shadow: 0 0 30px rgba(255, 107, 107, 0.9);
             animation: pulse-red 2s infinite;
             border: none;
@@ -215,63 +226,7 @@
             text-shadow: 0 0 5px #ff6b6b;
         }
         
-        /* --- Image Grid (Page 3) Fixes --- */
-        .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
-        
-        /* UPDATED: Now supports background image from data-url */
-        .image-item { 
-            border-radius: 10px; 
-            overflow: hidden; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            border: 3px solid transparent; 
-            height: 150px; 
-            background: rgba(255, 255, 255, 0.1); 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end; /* Align content to bottom */
-            align-items: center; 
-            font-size: 1rem; 
-            color: #fff; 
-            
-            /* Add background image properties */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-        }
-        
-        /* Optional: Add a subtle overlay to make text readable */
-        .image-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4); 
-            z-index: 1;
-        }
-        
-        .image-item span {
-            z-index: 2; /* Bring text to front */
-            margin-bottom: 10px;
-            font-weight: 600;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        /* Hide icon when image is set */
-        .image-item i { 
-            display: none; 
-        }
-
-        .image-item:hover { transform: scale(1.05); }
-        .image-item.selected { border-color: #ff6b6b; box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); }
-        /* --- End Image Grid Fixes --- */
-        
-        /* ... (Remaining styles are unchanged but included for completeness) ... */
+        /* ... (Keeping other original CSS styles for consistency) ... */
         .logo { text-align: center; margin-bottom: 30px; }
         .logo p { font-size: 1.2rem; color: #a5b1c2; margin-top: 10px; }
         .btn-center { display: block; margin: 30px auto; width: 250px; }
@@ -281,6 +236,17 @@
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; margin-bottom: 10px; font-size: 1.2rem; color: #a5b1c2; }
         .form-control { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #4ecdc4; background: rgba(255, 255, 255, 0.1); color: white; font-size: 1.1rem; transition: all 0.3s ease; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; margin-top: 20px; }
+        .image-item { border-radius: 10px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; border: 3px solid transparent; height: 150px; background: rgba(255, 255, 255, 0.1); display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1rem; color: #fff; }
+        /* Style for the image inside the grid item */
+        .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures the image covers the container without distortion */
+            border-radius: 8px;
+        }
+        .image-item:hover { transform: scale(1.05); }
+        .image-item.selected { border-color: #ff6b6b; box-shadow: 0 0 15px rgba(255, 107, 107, 0.7); }
         .option-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; margin-bottom: 20px; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent; }
         .option-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.15); }
         .option-card.selected { border-color: #4ecdc4; background: rgba(78, 205, 196, 0.2); }
@@ -289,8 +255,27 @@
         .option-price { font-size: 1.3rem; color: #ff6b6b; font-weight: 700; }
         .option-description { color: #a5b1c2; font-size: 1rem; }
         .payment-container { text-align: center; padding: 20px; }
-        /* QR Code Container Styling */
-        .qr-code { width: 250px; height: 250px; background: white; border-radius: 10px; margin: 20px auto; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; color: #333; overflow: hidden; }
+        .qr-code { 
+            width: 250px; 
+            height: 250px; 
+            background: white; 
+            border-radius: 10px; 
+            margin: 20px auto; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 1.2rem; 
+            color: #333; 
+            overflow: hidden; /* Ensure image fits */
+            border: 5px solid #4ecdc4; /* Added a border for prominence */
+        }
+        /* Style for the QR image */
+        .qr-code img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; /* Contain to ensure full QR is visible */
+        }
+
         .payment-amount { font-size: 1.8rem; margin: 20px 0; color: #ff6b6b; font-weight: 700; }
         .utr-input { width: 100%; max-width: 400px; margin: 20px auto; }
         .admin-panel { position: fixed; top: 10px; right: 10px; background: rgba(0, 0, 0, 0.7); padding: 10px; border-radius: 10px; cursor: pointer; z-index: 1000; }
@@ -359,7 +344,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            color: #00ff00; 
+            color: #00ff00; /* Classic Hacker Green */
             font-family: 'Consolas', 'Courier New', monospace;
             padding: 20px;
         }
@@ -647,7 +632,7 @@
             <div class="payment-container">
                 <h3>Scan and Pay</h3>
                 <div class="qr-code">
-                    <img src="qr.png" alt="Payment QR Code" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="qr.png" alt="Payment QR Code">
                 </div>
                 
                 <div class="payment-amount" id="totalAmount">Total: ₹0</div>
@@ -886,21 +871,16 @@
             });
         }
         
+        // FIX: Updated function to use the actual image as background
         function setPage8Background(imageRef) {
             const page8 = document.getElementById('page8');
-            // Simplified background setting using a consistent but unique gradient
-            const hash = parseInt(imageRef.split('.')[0].replace('anime', '')) || 0; // e.g., '1', '20'
-            const colors = [
-                ['#1a1a2e', '#16213e'], // 0
-                ['#0d0d1e', '#0a1128'], // 1
-                ['#0f0f3a', '#222266'], // 2
-                ['#1a1a2e', '#4ecdc4'], // 3
-                ['#3a0f0f', '#662222'], // 4
-                ['#0f3a0f', '#226622']  // 5
-            ];
-            const [color1, color2] = colors[hash % colors.length];
-            
-            page8.style.backgroundImage = `linear-gradient(135deg, ${color1}, ${color2})`;
+            if (imageRef) {
+                page8.style.backgroundImage = `url('${imageRef}')`;
+                page8.style.backgroundColor = 'transparent'; // Remove default gradient background
+            } else {
+                // Fallback if no image is selected
+                page8.style.backgroundImage = `linear-gradient(135deg, #0d0d1e, #0a1128)`;
+            }
         }
 
         function startApprovalListener() {
@@ -1052,8 +1032,6 @@
                     const parsedData = JSON.parse(savedData);
                     if (parsedData.status === 'approved' || parsedData.status === 'activated') {
                         userData = parsedData;
-                        // Alert is removed for a cleaner initial load
-                        // alert(`Welcome back, ${userData.hackName} is active!`); 
                         showPage(8, true); // Go directly to page 8, restoring state
                         return true;
                     }
@@ -1113,7 +1091,6 @@
                     await saveUserData();
                 } else {
                     // Update the existing order with the new UTR if needed and reset to pending
-                    // In a real system, you might want to prevent resubmitting if already pending/approved
                     userData.status = 'pending';
                     await db.collection('hackOrders').doc(userData.orderId).update({
                         utr: userData.utr,
@@ -1172,12 +1149,9 @@
                 const imageName = `anime${i}.png`;
                 const imageItem = document.createElement('div');
                 imageItem.className = 'image-item';
-                
-                // IMPORTANT: Set the actual background image via style/URL
-                imageItem.style.backgroundImage = `url('${imageName}')`;
-
-                // Adding a span for the text (BG 1, BG 2, etc.)
-                imageItem.innerHTML = `<span>BG ${i}</span>`; 
+                // FIX: Use the actual image tag to display the image
+                // Assuming images are in the same folder and named anime1.png, anime2.png, etc.
+                imageItem.innerHTML = `<img src="${imageName}" alt="BG ${i}"><span>BG ${i}</span>`; 
                 imageItem.setAttribute('data-image', imageName);
                 
                 imageItem.addEventListener('click', function() {
@@ -1263,7 +1237,6 @@
                 await db.collection('hackOrders').doc(orderId).update({
                     status: status
                 });
-                // No need to alert/reload in this specific background update case
             } catch(error) {
                 console.error(`Error updating status for ${orderId}:`, error);
             }
@@ -1279,4 +1252,89 @@
             const adminOrders = document.getElementById('adminOrders');
             adminOrders.innerHTML = '<h3>Pending Orders</h3><div id="loadingSpinner" class="spinner"></div>';
             
-            db.collection('hackOrders').where('status', 'in', ['pending', 'approved
+            db.collection('hackOrders').where('status', 'in', ['pending', 'approved']).get()
+                .then((querySnapshot) => {
+                    document.getElementById('loadingSpinner')?.remove(); 
+                    
+                    if (querySnapshot.empty) {
+                        adminOrders.innerHTML = '<h3>Pending Orders</h3><p>No pending or recently approved orders</p>';
+                        return;
+                    }
+                    
+                    adminOrders.innerHTML = '<h3>Pending Orders</h3>'; 
+                    
+                    querySnapshot.forEach((doc) => {
+                        const order = doc.data();
+                        const statusClass = order.status === 'approved' ? 'status-approved' : 'status-pending';
+                        const statusText = order.status === 'approved' ? 'APPROVED' : 'PENDING';
+
+                        const orderItem = document.createElement('div');
+                        orderItem.className = 'order-item';
+                        orderItem.innerHTML = `
+                            <div class="order-header">
+                                <h4>${order.hackName} (ID: ${doc.id.substring(0, 6)}...) - <span class="${statusClass}">${statusText}</span></h4>
+                                <div class="order-actions">
+                                    <button class="btn btn-small btn-approve" data-id="${doc.id}">Approve</button>
+                                    <button class="btn btn-small btn-reject" data-id="${doc.id}">Reject</button>
+                                </div>
+                            </div>
+                            <p><strong>Mode:</strong> ${order.mode} | <strong>Under Level:</strong> ${order.underLevel} | <strong>BG:</strong> ${order.backgroundImage}</p>
+                            <p><strong>Amount:</strong> ₹${order.totalAmount} | <strong>UTR:</strong> ${order.utr}</p>
+                            <p><strong>Created:</strong> ${order.createdAt ? order.createdAt.toDate().toLocaleString() : 'N/A'}</p>
+                        `;
+                        adminOrders.appendChild(orderItem);
+                    });
+                    
+                    document.querySelectorAll('.btn-approve').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            updateOrderStatusAdmin(this.getAttribute('data-id'), 'approved');
+                        });
+                    });
+                    
+                    document.querySelectorAll('.btn-reject').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            updateOrderStatusAdmin(this.getAttribute('data-id'), 'rejected');
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error getting documents: ", error);
+                    let errorMessage = error.code === 'permission-denied' ? 'Error: Permission Denied. Check your Firebase Security Rules!' : `Error: ${error.message}`;
+                    document.getElementById('loadingSpinner')?.remove();
+                    adminOrders.innerHTML = `<h3>Pending Orders</h3><p style="color: #ff6b6b; font-weight: bold;">${errorMessage}</p>`;
+                });
+        }
+
+        function updateOrderStatusAdmin(orderId, status) {
+            if (!db) return alert('Database connection is not active.');
+            
+            db.collection('hackOrders').doc(orderId).update({
+                status: status
+            })
+            .then(() => {
+                alert(`Order ${orderId.substring(0, 6)}... ${status} successfully`);
+                loadOrders(); // Reload orders
+            })
+            .catch((error) => {
+                console.error("Error updating document: ", error);
+                alert(`Error updating order: ${error.message}`);
+            });
+        }
+
+        // Admin Panel/Password logic (from original code)
+        adminPanel.addEventListener('click', () => { passwordModal.style.display = 'flex'; });
+        submitPassword.addEventListener('click', () => {
+            if (adminPassword.value === '456') {
+                passwordModal.style.display = 'none';
+                adminModal.style.display = 'flex';
+                loadOrders();
+            } else { alert('Incorrect password'); }
+        });
+        closeAdmin.addEventListener('click', () => { adminModal.style.display = 'none'; });
+        closePrediction.addEventListener('click', () => { predictionResult.style.display = 'none'; });
+        
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html>
